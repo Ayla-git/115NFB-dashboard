@@ -3,7 +3,7 @@ name: Update Dashboard Data
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 1 * * *"   # 台灣時間每天上午 9:00 左右執行
+    - cron: "0 1 * * *"   # 台灣時間每天上午 7:00 左右執行
 
 permissions:
   contents: write
