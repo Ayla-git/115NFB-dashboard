@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>115年度高公局鋪面巡檢｜主管 Dashboard</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",Arial,sans-serif;margin:0;background:#f6f8fa;color:#1f2328}
+.wrap{max-width:1200px;margin:auto;padding:28px}.top{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}
+h1{font-size:26px;margin:0 0 8px}.muted{color:#667085;font-size:14px}.health{padding:8px 12px;border-radius:999px;background:#dafbe1;color:#1a7f37;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:20px 0}.card{background:#fff;border:1px solid #d8dee4;border-radius:12px;padding:18px}
+.label{font-size:13px;color:#667085}.value{font-size:28px;font-weight:750;margin-top:6px}
+.two{display:grid;grid-template-columns:1.4fr .6fr;gap:14px}h2{font-size:18px;margin:0 0 12px}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:10px;border-bottom:1px solid #eaeef2;text-align:left}
+th{font-size:12px;color:#667085}.tag{display:inline-block;padding:3px 8px;border-radius:999px;font-size:12px;font-weight:650;margin:2px}
+.done{background:#eef1f4}.doing{background:#ddf4ff;color:#0969da}.external{background:#ffeff7;color:#bf3989}.key{background:#fff8c5;color:#9a6700}.dept{background:#f6f8fa;border:1px solid #d0d7de;color:#57606a}
+.progress{height:7px;background:#eef1f4;border-radius:999px;overflow:hidden;min-width:100px}.progress span{display:block;height:100%;background:#8250df}
+.timeline{margin-top:18px}.step{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:10px 0;border-bottom:1px solid #eaeef2}.date{color:#667085;font-size:13px;text-align:right}.title{font-weight:700}.desc{font-size:13px;color:#667085;margin-top:3px}
+.note{margin-top:12px;padding:12px;border:1px dashed #d0d7de;border-radius:10px;background:#f6f8fa;color:#667085;font-size:13px}
+footer{margin-top:22px;text-align:right;color:#667085;font-size:12px}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}.top{flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div>
+      <h1>115年度自動巡查車輔助鋪面定期調查｜A項</h1>
+      <div class="muted">主管 Dashboard｜目前階段：工作計畫／履約準備｜資料來源：GitHub Project</div>
+    </div>
+    <div class="health">● On Track</div>
+  </div>
+
+  <div class="grid">
+    <div class="card"><div class="label">本月完成</div><div class="value">8</div></div>
+    <div class="card"><div class="label">進行中</div><div class="value">2</div></div>
+    <div class="card"><div class="label">待外部確認</div><div class="value">2</div></div>
+    <div class="card"><div class="label">延遲項目</div><div class="value">0</div></div>
+  </div>
+
+  <div class="two">
+    <div class="card">
+      <h2>本月重點</h2>
+      <table>
+        <thead><tr><th>工作項目</th><th>月報分類</th><th>進度</th><th>預計完成</th><th>執行單位</th></tr></thead>
+        <tbody>
+          <tr><td>工作計畫</td><td><span class="tag doing">進行中</span><span class="tag key">關鍵節點</span></td><td><div class="progress"><span style="width:50%"></span></div>50%</td><td>2026/09/11</td><td><span class="tag dept">專案部</span></td></tr>
+          <tr><td>契約製作</td><td><span class="tag external">待外部確認</span></td><td>0%</td><td>2026/09/04</td><td><span class="tag dept">專案部</span><span class="tag dept">行政管理</span></td></tr>
+          <tr><td>A項－內湖工務段</td><td><span class="tag doing">進行中</span><span class="tag key">關鍵節點</span></td><td>0%</td><td>2026/12/31</td><td><span class="tag dept">檢測部</span></td></tr>
+          <tr><td>議價</td><td><span class="tag done">本月完成</span></td><td>—</td><td>2026/08/27</td><td><span class="tag dept">檢測部</span><span class="tag dept">執行長</span></td></tr>
+        </tbody>
+      </table>
+      <div class="note">主管版只顯示值得報告的資訊；WBS、Phase、Item Type 等技術欄位留在 GitHub 內部管理畫面。</div>
+    </div>
+
+    <div class="card">
+      <h2>時程狀態</h2>
+      <table>
+        <tbody>
+          <tr><td>超前</td><td>0 項</td></tr>
+          <tr><td>延遲</td><td>0 項</td></tr>
+          <tr><td>待外部</td><td>2 項</td></tr>
+          <tr><td>專案健康度</td><td><span class="tag doing">On Track</span></td></tr>
+        </tbody>
+      </table>
+      <h2 style="margin-top:18px">執行單位</h2>
+      <div><span class="tag dept">專案部</span><span class="tag dept">檢測部</span><span class="tag dept">檢測部－外業</span><span class="tag dept">檢測部－內業</span><span class="tag dept">行政管理</span></div>
+    </div>
+  </div>
+
+  <div class="card timeline">
+    <h2>近期關鍵節點</h2>
+    <div class="step"><div class="date">2026/09/11</div><div><div class="title">工作計畫完成／提送</div><div class="desc">完成履約前置文件與執行規劃。</div></div></div>
+    <div class="step"><div class="date">待核定</div><div><div class="title">工作計畫核定</div><div class="desc">核定後進入正式履約時程管理。</div></div></div>
+    <div class="step"><div class="date">2026/12/31</div><div><div class="title">A項執行階段目標</div><div class="desc">外業、內業與成果整備依 WBS 推進。</div></div></div>
+    <div class="step"><div class="date">2027/01</div><div><div class="title">成果報告／審查／修正</div><div class="desc">進入成果送審與驗收準備。</div></div></div>
+  </div>
+
+  <footer>Prototype Dashboard · 非自動同步版本</footer>
+</div>
+</body>
+</html>
