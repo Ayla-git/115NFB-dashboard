@@ -1,6 +1,6 @@
 {
   "projectTitle": "115NFB",
-  "updatedAt": "2026-08-31T13:47:21+08:00",
+  "updatedAt": "2026-08-31T15:07:13+08:00",
   "items": [
     {
       "title": "01_議價/議約",
@@ -680,7 +680,7 @@
       ],
       "plannedStart": "2026-08-27",
       "plannedEnd": "2026-09-24",
-      "actualStart": null,
+      "actualStart": "2026-08-27",
       "actualEnd": null,
       "scheduleStatus": null,
       "monthlyCategory": null,
@@ -899,7 +899,7 @@
       "progress": 0,
       "status": "履約-檢測",
       "phase": null,
-      "itemType": null,
+      "itemType": "Task",
       "executingUnits": [
         "檢測部-內-數化"
       ],
@@ -911,79 +911,6 @@
       "monthlyCategory": null,
       "keyMilestone": null,
       "wbs": 3200.0
-    },
-    {
-      "title": "302_(壓測)B項-苗栗工務段",
-      "number": 20,
-      "repository": "115work",
-      "parent": "03_專案執行",
-      "parentNumber": 9,
-      "parentRepository": "115work",
-      "subIssuesTotal": 2,
-      "subIssuesCompleted": 0,
-      "progress": 0,
-      "status": "壓測-檢測",
-      "phase": null,
-      "itemType": "Task",
-      "executingUnits": [
-        "檢測部"
-      ],
-      "plannedStart": "2026-08-28",
-      "plannedEnd": "2026-12-31",
-      "actualStart": null,
-      "actualEnd": null,
-      "scheduleStatus": null,
-      "monthlyCategory": "近期關鍵節點",
-      "keyMilestone": [
-        "否"
-      ],
-      "wbs": 3200.0
-    },
-    {
-      "title": "30201_內業-切塊",
-      "number": 22,
-      "repository": "115work",
-      "parent": "302_(壓測)B項-苗栗工務段",
-      "parentNumber": 20,
-      "parentRepository": "115work",
-      "subIssuesTotal": 0,
-      "subIssuesCompleted": 0,
-      "progress": 0,
-      "status": "壓測-檢測",
-      "phase": null,
-      "itemType": null,
-      "executingUnits": [],
-      "plannedStart": "2026-08-27",
-      "plannedEnd": "2026-09-24",
-      "actualStart": null,
-      "actualEnd": null,
-      "scheduleStatus": null,
-      "monthlyCategory": null,
-      "keyMilestone": null,
-      "wbs": 3201.0
-    },
-    {
-      "title": "30202_外業-拍攝",
-      "number": 23,
-      "repository": "115work",
-      "parent": "302_(壓測)B項-苗栗工務段",
-      "parentNumber": 20,
-      "parentRepository": "115work",
-      "subIssuesTotal": 0,
-      "subIssuesCompleted": 0,
-      "progress": 0,
-      "status": "壓測-檢測",
-      "phase": null,
-      "itemType": null,
-      "executingUnits": [],
-      "plannedStart": "2026-10-19",
-      "plannedEnd": "2026-10-22",
-      "actualStart": null,
-      "actualEnd": null,
-      "scheduleStatus": null,
-      "monthlyCategory": null,
-      "keyMilestone": null,
-      "wbs": 3201.0
     },
     {
       "title": "311001_跑表1",
@@ -1052,7 +979,7 @@
       "scheduleStatus": null,
       "monthlyCategory": null,
       "keyMilestone": null,
-      "wbs": 3202.0
+      "wbs": 3203.0
     },
     {
       "title": "311004_跑表4",
@@ -1174,6 +1101,79 @@
       "wbs": 3220.0
     },
     {
+      "title": "302_(壓測)B項-苗栗工務段",
+      "number": 20,
+      "repository": "115work",
+      "parent": "03_專案執行",
+      "parentNumber": 9,
+      "parentRepository": "115work",
+      "subIssuesTotal": 2,
+      "subIssuesCompleted": 0,
+      "progress": 0,
+      "status": "壓測-檢測",
+      "phase": null,
+      "itemType": "Task",
+      "executingUnits": [
+        "檢測部"
+      ],
+      "plannedStart": "2026-08-28",
+      "plannedEnd": "2026-12-31",
+      "actualStart": null,
+      "actualEnd": null,
+      "scheduleStatus": null,
+      "monthlyCategory": "近期關鍵節點",
+      "keyMilestone": [
+        "否"
+      ],
+      "wbs": 3300.0
+    },
+    {
+      "title": "30201_內業-切塊",
+      "number": 22,
+      "repository": "115work",
+      "parent": "302_(壓測)B項-苗栗工務段",
+      "parentNumber": 20,
+      "parentRepository": "115work",
+      "subIssuesTotal": 0,
+      "subIssuesCompleted": 0,
+      "progress": 0,
+      "status": "壓測-檢測",
+      "phase": null,
+      "itemType": null,
+      "executingUnits": [],
+      "plannedStart": "2026-08-27",
+      "plannedEnd": "2026-09-24",
+      "actualStart": null,
+      "actualEnd": null,
+      "scheduleStatus": null,
+      "monthlyCategory": null,
+      "keyMilestone": null,
+      "wbs": 3310.0
+    },
+    {
+      "title": "30202_外業-拍攝",
+      "number": 23,
+      "repository": "115work",
+      "parent": "302_(壓測)B項-苗栗工務段",
+      "parentNumber": 20,
+      "parentRepository": "115work",
+      "subIssuesTotal": 0,
+      "subIssuesCompleted": 0,
+      "progress": 0,
+      "status": "壓測-檢測",
+      "phase": null,
+      "itemType": null,
+      "executingUnits": [],
+      "plannedStart": "2026-10-19",
+      "plannedEnd": "2026-10-22",
+      "actualStart": null,
+      "actualEnd": null,
+      "scheduleStatus": null,
+      "monthlyCategory": null,
+      "keyMilestone": null,
+      "wbs": 3320.0
+    },
+    {
       "title": "303_(壓測)C項-岡山工務段",
       "number": 21,
       "repository": "115work",
@@ -1198,7 +1198,7 @@
       "keyMilestone": [
         "否"
       ],
-      "wbs": 3300.0
+      "wbs": 3500.0
     },
     {
       "title": "30301_內業-切塊",
@@ -1213,15 +1213,17 @@
       "status": "壓測-檢測",
       "phase": null,
       "itemType": null,
-      "executingUnits": [],
+      "executingUnits": [
+        "檢測部"
+      ],
       "plannedStart": null,
       "plannedEnd": null,
       "actualStart": null,
       "actualEnd": null,
       "scheduleStatus": null,
-      "monthlyCategory": null,
+      "monthlyCategory": "風險/異常",
       "keyMilestone": null,
-      "wbs": 3301.0
+      "wbs": 3510.0
     },
     {
       "title": "30302_外業-拍攝",
@@ -1236,7 +1238,9 @@
       "status": "壓測-檢測",
       "phase": null,
       "itemType": null,
-      "executingUnits": [],
+      "executingUnits": [
+        "檢測部"
+      ],
       "plannedStart": "2026-10-12",
       "plannedEnd": "2026-10-16",
       "actualStart": null,
@@ -1244,7 +1248,7 @@
       "scheduleStatus": null,
       "monthlyCategory": null,
       "keyMilestone": null,
-      "wbs": 3302.0
+      "wbs": 3520.0
     },
     {
       "title": "04_驗收/修正",
@@ -1259,7 +1263,11 @@
       "status": "內部",
       "phase": null,
       "itemType": null,
-      "executingUnits": [],
+      "executingUnits": [
+        "技術部",
+        "專案部",
+        "檢測部"
+      ],
       "plannedStart": "2026-12-07",
       "plannedEnd": "2027-01-29",
       "actualStart": null,
@@ -1282,7 +1290,10 @@
       "status": "Todo",
       "phase": "履約",
       "itemType": "Task",
-      "executingUnits": [],
+      "executingUnits": [
+        "專案部",
+        "檢測部"
+      ],
       "plannedStart": "2026-12-07",
       "plannedEnd": "2026-12-31",
       "actualStart": null,
@@ -1541,7 +1552,13 @@
       "status": "內部",
       "phase": null,
       "itemType": "Task",
-      "executingUnits": [],
+      "executingUnits": [
+        "甲-總處-承辦",
+        "行政管理",
+        "執行長",
+        "專案部",
+        "檢測部"
+      ],
       "plannedStart": "2027-02-01",
       "plannedEnd": "2027-03-19",
       "actualStart": null,
@@ -1566,7 +1583,10 @@
       "status": "Todo",
       "phase": null,
       "itemType": "Task",
-      "executingUnits": [],
+      "executingUnits": [
+        "行政管理",
+        "專案部"
+      ],
       "plannedStart": "2027-02-01",
       "plannedEnd": "2027-02-26",
       "actualStart": null,
@@ -1589,7 +1609,10 @@
       "status": "Todo",
       "phase": null,
       "itemType": "Task",
-      "executingUnits": [],
+      "executingUnits": [
+        "執行長",
+        "專案部"
+      ],
       "plannedStart": "2027-03-02",
       "plannedEnd": "2027-03-12",
       "actualStart": null,
