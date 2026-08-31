@@ -271,7 +271,7 @@ footer{margin-top:22px;text-align:right;color:var(--muted);font-size:12px}
     </div>
   </section>
 
-  <footer id="footer">115NFB Dashboard</footer>
+  <footer id="footer">Supratech 2026</footer>
 </div>
 
 <script>
@@ -568,7 +568,6 @@ async function loadDashboard(){
     if(data.updatedAt){
       const dt=new Date(data.updatedAt);
       updatedAt.textContent="資料更新："+dt.toLocaleString("zh-TW");
-      footer.textContent="115NFB Dashboard｜資料更新："+dt.toLocaleString("zh-TW");
     }
 
     renderOverview();
