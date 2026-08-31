@@ -1,0 +1,27 @@
+name: Test Project Connection
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-project:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check GitHub Project
+        env:
+          GH_TOKEN: ${{ secrets.PROJECT_TOKEN }}
+        run: |
+          gh api graphql -f query='
+            query {
+              user(login: "Ayla-git") {
+                projectsV2(first: 20) {
+                  nodes {
+                    number
+                    title
+                    closed
+                  }
+                }
+              }
+            }
+          '
