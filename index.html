@@ -3,80 +3,750 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>115NFB-Dashboard</title>
+<title>115NFB Dashboard</title>
+
 <style>
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",Arial,sans-serif;margin:0;background:#f6f8fa;color:#1f2328}
-.wrap{max-width:1200px;margin:auto;padding:28px}.top{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}
-h1{font-size:26px;margin:0 0 8px}.muted{color:#667085;font-size:14px}.health{padding:8px 12px;border-radius:999px;background:#dafbe1;color:#1a7f37;font-weight:700}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:20px 0}.card{background:#fff;border:1px solid #d8dee4;border-radius:12px;padding:18px}
-.label{font-size:13px;color:#667085}.value{font-size:28px;font-weight:750;margin-top:6px}
-.two{display:grid;grid-template-columns:1.4fr .6fr;gap:14px}h2{font-size:18px;margin:0 0 12px}
-table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:10px;border-bottom:1px solid #eaeef2;text-align:left}
-th{font-size:12px;color:#667085}.tag{display:inline-block;padding:3px 8px;border-radius:999px;font-size:12px;font-weight:650;margin:2px}
-.done{background:#eef1f4}.doing{background:#ddf4ff;color:#0969da}.external{background:#ffeff7;color:#bf3989}.key{background:#fff8c5;color:#9a6700}.dept{background:#f6f8fa;border:1px solid #d0d7de;color:#57606a}
-.progress{height:7px;background:#eef1f4;border-radius:999px;overflow:hidden;min-width:100px}.progress span{display:block;height:100%;background:#8250df}
-.timeline{margin-top:18px}.step{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:10px 0;border-bottom:1px solid #eaeef2}.date{color:#667085;font-size:13px;text-align:right}.title{font-weight:700}.desc{font-size:13px;color:#667085;margin-top:3px}
-.note{margin-top:12px;padding:12px;border:1px dashed #d0d7de;border-radius:10px;background:#f6f8fa;color:#667085;font-size:13px}
-footer{margin-top:22px;text-align:right;color:#667085;font-size:12px}
-@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}.top{flex-direction:column}}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",Arial,sans-serif;
+  margin:0;
+  background:#f6f8fa;
+  color:#1f2328;
+}
+
+.wrap{
+  max-width:1200px;
+  margin:0 auto;
+  padding:28px;
+}
+
+.top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:20px;
+}
+
+h1{
+  font-size:26px;
+  margin:0 0 8px;
+}
+
+h2{
+  font-size:18px;
+  margin:0 0 14px;
+}
+
+.muted{
+  color:#667085;
+  font-size:14px;
+}
+
+.health{
+  padding:8px 14px;
+  border-radius:999px;
+  background:#dafbe1;
+  color:#1a7f37;
+  font-weight:700;
+  white-space:nowrap;
+}
+
+.health.warn{
+  background:#fff8c5;
+  color:#9a6700;
+}
+
+.health.delay{
+  background:#ffebe9;
+  color:#cf222e;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  margin:20px 0;
+}
+
+.card{
+  background:#fff;
+  border:1px solid #d8dee4;
+  border-radius:12px;
+  padding:18px;
+}
+
+.label{
+  font-size:13px;
+  color:#667085;
+}
+
+.value{
+  font-size:28px;
+  font-weight:750;
+  margin-top:6px;
+}
+
+.two{
+  display:grid;
+  grid-template-columns:1.5fr .8fr;
+  gap:14px;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:14px;
+}
+
+th,td{
+  padding:10px;
+  border-bottom:1px solid #eaeef2;
+  text-align:left;
+  vertical-align:middle;
+}
+
+th{
+  color:#667085;
+  font-weight:600;
+}
+
+.tag{
+  display:inline-block;
+  padding:3px 8px;
+  border-radius:999px;
+  font-size:12px;
+  margin:2px 3px 2px 0;
+}
+
+.done{
+  background:#eef1f4;
+}
+
+.doing{
+  background:#ddf4ff;
+  color:#0969da;
+}
+
+.external{
+  background:#fff8c5;
+  color:#9a6700;
+}
+
+.delayTag{
+  background:#ffebe9;
+  color:#cf222e;
+}
+
+.formal{
+  background:#dafbe1;
+  color:#1a7f37;
+}
+
+.internal{
+  background:#fbefff;
+  color:#8250df;
+}
+
+.timeline{
+  margin-top:14px;
+}
+
+.step{
+  display:grid;
+  grid-template-columns:150px 1fr;
+  gap:18px;
+  padding:14px 0;
+  border-bottom:1px solid #eaeef2;
+}
+
+.date{
+  font-size:13px;
+  color:#667085;
+}
+
+.title{
+  font-weight:700;
+  margin-bottom:4px;
+}
+
+.desc{
+  color:#667085;
+  font-size:13px;
+}
+
+.note{
+  margin-top:14px;
+  padding:12px;
+  border:1px dashed #d0d7de;
+  border-radius:10px;
+  background:#f6f8fa;
+  color:#667085;
+  font-size:13px;
+}
+
+.loading{
+  padding:30px;
+  text-align:center;
+  color:#667085;
+}
+
+footer{
+  margin-top:22px;
+  text-align:right;
+  color:#667085;
+  font-size:12px;
+}
+
+@media(max-width:850px){
+  .grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .two{
+    grid-template-columns:1fr;
+  }
+
+  .top{
+    flex-direction:column;
+  }
+
+  .step{
+    grid-template-columns:1fr;
+    gap:4px;
+  }
+}
 </style>
 </head>
+
 <body>
+
 <div class="wrap">
+
   <div class="top">
     <div>
-      <h1>115-A</h1>
-      <div class="muted">主管 Dashboard｜目前階段：工作計畫／履約準備｜資料來源：GitHub Project</div>
+      <h1 id="projectTitle">115NFB</h1>
+      <div class="muted">
+        主管 Dashboard｜整體專案時程／履約準備／內部壓測
+      </div>
+      <div class="muted" id="updatedAt">
+        資料載入中…
+      </div>
     </div>
-    <div class="health">● On Track</div>
+
+    <div id="health" class="health">
+      On Track
+    </div>
   </div>
+
 
   <div class="grid">
-    <div class="card"><div class="label">本月完成</div><div class="value">8</div></div>
-    <div class="card"><div class="label">進行中</div><div class="value">2</div></div>
-    <div class="card"><div class="label">待外部確認</div><div class="value">2</div></div>
-    <div class="card"><div class="label">延遲項目</div><div class="value">0</div></div>
+
+    <div class="card">
+      <div class="label">本月完成</div>
+      <div class="value" id="countDone">-</div>
+    </div>
+
+    <div class="card">
+      <div class="label">進行中</div>
+      <div class="value" id="countDoing">-</div>
+    </div>
+
+    <div class="card">
+      <div class="label">待外部確認</div>
+      <div class="value" id="countExternal">-</div>
+    </div>
+
+    <div class="card">
+      <div class="label">延遲項目</div>
+      <div class="value" id="countDelay">-</div>
+    </div>
+
   </div>
+
 
   <div class="two">
-    <div class="card">
-      <h2>本月重點</h2>
-      <table>
-        <thead><tr><th>工作項目</th><th>月報分類</th><th>進度</th><th>預計完成</th><th>執行單位</th></tr></thead>
-        <tbody>
-          <tr><td>工作計畫</td><td><span class="tag doing">進行中</span><span class="tag key">關鍵節點</span></td><td><div class="progress"><span style="width:50%"></span></div>50%</td><td>2026/09/11</td><td><span class="tag dept">專案部</span></td></tr>
-          <tr><td>契約製作</td><td><span class="tag external">待外部確認</span></td><td>0%</td><td>2026/09/04</td><td><span class="tag dept">專案部</span><span class="tag dept">行政管理</span></td></tr>
-          <tr><td>A項－內湖工務段</td><td><span class="tag doing">進行中</span><span class="tag key">關鍵節點</span></td><td>0%</td><td>2026/12/31</td><td><span class="tag dept">檢測部</span></td></tr>
-          <tr><td>議價</td><td><span class="tag done">本月完成</span></td><td>—</td><td>2026/08/27</td><td><span class="tag dept">檢測部</span><span class="tag dept">執行長</span></td></tr>
-        </tbody>
-      </table>
-      <div class="note">主管版只顯示值得報告的資訊；WBS、Phase、Item Type 等技術欄位留在 GitHub 內部管理畫面。</div>
-    </div>
 
     <div class="card">
-      <h2>時程狀態</h2>
+
+      <h2>本月重點</h2>
+
       <table>
-        <tbody>
-          <tr><td>超前</td><td>0 項</td></tr>
-          <tr><td>延遲</td><td>0 項</td></tr>
-          <tr><td>待外部</td><td>2 項</td></tr>
-          <tr><td>專案健康度</td><td><span class="tag doing">On Track</span></td></tr>
+        <thead>
+          <tr>
+            <th>工作項目</th>
+            <th>狀態</th>
+            <th>預計完成</th>
+          </tr>
+        </thead>
+
+        <tbody id="importantItems">
+          <tr>
+            <td colspan="3" class="loading">資料載入中…</td>
+          </tr>
         </tbody>
       </table>
-      <h2 style="margin-top:18px">執行單位</h2>
-      <div><span class="tag dept">專案部</span><span class="tag dept">檢測部</span><span class="tag dept">檢測部－外業</span><span class="tag dept">檢測部－內業</span><span class="tag dept">行政管理</span></div>
+
+      <div class="note">
+        本頁僅顯示管理層需要的專案摘要
+      </div>
+
     </div>
+
+
+    <div class="card">
+
+      <h2>時程狀態</h2>
+
+      <table>
+        <tbody>
+          <tr>
+            <td>超前</td>
+            <td id="countAhead">- 項</td>
+          </tr>
+
+          <tr>
+            <td>延遲</td>
+            <td id="countDelay2">- 項</td>
+          </tr>
+
+          <tr>
+            <td>待外部</td>
+            <td id="countExternal2">- 項</td>
+          </tr>
+
+          <tr>
+            <td>專案健康度</td>
+            <td id="health2">-</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
   </div>
+
 
   <div class="card timeline">
-    <h2>近期關鍵節點</h2>
-    <div class="step"><div class="date">2026/09/11</div><div><div class="title">工作計畫完成／提送</div><div class="desc">完成履約前置文件與執行規劃。</div></div></div>
-    <div class="step"><div class="date">待核定</div><div><div class="title">工作計畫核定</div><div class="desc">核定後進入正式履約時程管理。</div></div></div>
-    <div class="step"><div class="date">2026/12/31</div><div><div class="title">A項執行階段目標</div><div class="desc">外業、內業與成果整備依 WBS 推進。</div></div></div>
-    <div class="step"><div class="date">2027/01</div><div><div class="title">成果報告／審查／修正</div><div class="desc">進入成果送審與驗收準備。</div></div></div>
+
+    <h2>整體專案時程</h2>
+
+    <div id="timeline">
+      <div class="loading">資料載入中…</div>
+    </div>
+
+    <div class="note">
+      A 項為正式履約範圍；B、C 項如出現於本頁，係內部壓測／執行能力規劃。
+    </div>
+
   </div>
 
-  <footer>Prototype Dashboard · 非自動同步</footer>
+
+  <footer id="footer">
+    115NFB Dashboard
+  </footer>
+
 </div>
+
+
+<script>
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+}
+
+
+function formatDate(date) {
+
+  if(!date) return "—";
+
+  const d = new Date(date + "T00:00:00");
+
+  if(Number.isNaN(d.getTime())) return date;
+
+  return d.toLocaleDateString(
+    "zh-TW",
+    {
+      year:"numeric",
+      month:"2-digit",
+      day:"2-digit"
+    }
+  );
+
+}
+
+
+function monthlyTag(category) {
+
+  if(category === "本月完成")
+    return `<span class="tag done">本月完成</span>`;
+
+  if(category === "進行中")
+    return `<span class="tag doing">進行中</span>`;
+
+  if(category === "待外部確認")
+    return `<span class="tag external">待外部確認</span>`;
+
+  if(category === "近期關鍵節點")
+    return `<span class="tag formal">近期關鍵節點</span>`;
+
+  return "";
+
+}
+
+
+function scopeTag(item) {
+
+  if(item.status === "履約-檢測")
+    return `<span class="tag formal">正式履約</span>`;
+
+  if(item.status === "壓測-檢測")
+    return `<span class="tag internal">內部壓測</span>`;
+
+  return "";
+
+}
+
+
+async function loadDashboard(){
+
+  try{
+
+    /*
+      加時間參數，避免瀏覽器一直讀舊版 data.json
+    */
+
+    const response =
+      await fetch("./data.json?t=" + Date.now());
+
+    if(!response.ok)
+      throw new Error("無法讀取 data.json");
+
+    const data = await response.json();
+
+    const items =
+      Array.isArray(data.items)
+      ? data.items
+      : [];
+
+
+    /*
+      標題與更新時間
+    */
+
+    document.getElementById("projectTitle").textContent =
+      data.projectTitle || "115NFB";
+
+    if(data.updatedAt){
+
+      const dt = new Date(data.updatedAt);
+
+      document.getElementById("updatedAt").textContent =
+        "資料更新：" +
+        dt.toLocaleString("zh-TW");
+
+      document.getElementById("footer").textContent =
+        "115NFB Dashboard｜資料更新：" +
+        dt.toLocaleString("zh-TW");
+
+    }
+
+
+    /*
+      首頁統計
+    */
+
+    const done =
+      items.filter(
+        x => x.monthlyCategory === "本月完成"
+      ).length;
+
+    const doing =
+      items.filter(
+        x => x.monthlyCategory === "進行中"
+      ).length;
+
+    const external =
+      items.filter(
+        x => x.monthlyCategory === "待外部確認"
+      ).length;
+
+    const delay =
+      items.filter(
+        x => x.scheduleStatus === "延遲"
+      ).length;
+
+    const ahead =
+      items.filter(
+        x => x.scheduleStatus === "超前"
+      ).length;
+
+
+    document.getElementById("countDone").textContent =
+      done;
+
+    document.getElementById("countDoing").textContent =
+      doing;
+
+    document.getElementById("countExternal").textContent =
+      external;
+
+    document.getElementById("countDelay").textContent =
+      delay;
+
+    document.getElementById("countAhead").textContent =
+      ahead + " 項";
+
+    document.getElementById("countDelay2").textContent =
+      delay + " 項";
+
+    document.getElementById("countExternal2").textContent =
+      external + " 項";
+
+
+    /*
+      專案健康度
+    */
+
+    let healthText = "On Track";
+    let healthClass = "health";
+
+    if(delay > 0){
+
+      healthText = "Attention";
+      healthClass = "health delay";
+
+    }
+    else if(external > 0){
+
+      healthText = "Watch";
+      healthClass = "health warn";
+
+    }
+
+    const health =
+      document.getElementById("health");
+
+    health.textContent =
+      healthText;
+
+    health.className =
+      healthClass;
+
+    document.getElementById("health2").textContent =
+      healthText;
+
+
+    /*
+      本月重點
+    */
+
+    const important =
+      items
+      .filter(
+        x =>
+          x.monthlyCategory ||
+          x.scheduleStatus === "延遲"
+      )
+      .sort(
+        (a,b) =>
+          (Number(a.wbs) || 999999) -
+          (Number(b.wbs) || 999999)
+      );
+
+
+    const importantBody =
+      document.getElementById("importantItems");
+
+
+    if(important.length === 0){
+
+      importantBody.innerHTML =
+        `<tr>
+          <td colspan="3">
+            目前尚無月報分類資料
+          </td>
+        </tr>`;
+
+    }
+    else{
+
+      importantBody.innerHTML =
+        important
+        .slice(0,15)
+        .map(item => {
+
+          let tags =
+            monthlyTag(item.monthlyCategory) +
+            scopeTag(item);
+
+          if(item.scheduleStatus === "延遲")
+            tags +=
+              `<span class="tag delayTag">延遲</span>`;
+
+          return `
+          <tr>
+
+            <td>
+              ${escapeHtml(item.title)}
+            </td>
+
+            <td>
+              ${tags || "—"}
+            </td>
+
+            <td>
+              ${formatDate(item.plannedEnd)}
+            </td>
+
+          </tr>
+          `;
+
+        })
+        .join("");
+
+    }
+
+
+    /*
+      整體專案時程
+
+      1000 = 議價／議約
+      2000 = 簽約／履約準備
+      3000 = 專案執行
+      3100 = A
+      3200 = B
+      3300 = C
+      4000 = 驗收／修正
+      5000 = 請款／結案
+    */
+
+    const timelineWbs =
+      new Set([
+        1000,
+        2000,
+        3000,
+        3100,
+        3200,
+        3300,
+        4000,
+        5000
+      ]);
+
+
+    const timelineItems =
+      items
+      .filter(
+        x =>
+          timelineWbs.has(
+            Number(x.wbs)
+          )
+      )
+      .sort(
+        (a,b) =>
+          Number(a.wbs) -
+          Number(b.wbs)
+      );
+
+
+    const timeline =
+      document.getElementById("timeline");
+
+
+    if(timelineItems.length === 0){
+
+      timeline.innerHTML =
+        `<div class="loading">
+          尚無可顯示的專案時程
+        </div>`;
+
+    }
+    else{
+
+      timeline.innerHTML =
+        timelineItems
+        .map(item => {
+
+          const start =
+            formatDate(item.plannedStart);
+
+          const end =
+            formatDate(item.plannedEnd);
+
+          const dateText =
+            start === end
+            ? start
+            : start + " ～ " + end;
+
+          let tags =
+            scopeTag(item);
+
+          if(item.scheduleStatus === "延遲")
+            tags +=
+              `<span class="tag delayTag">延遲</span>`;
+
+          if(item.scheduleStatus === "超前")
+            tags +=
+              `<span class="tag formal">超前</span>`;
+
+          return `
+          <div class="step">
+
+            <div class="date">
+              ${dateText}
+            </div>
+
+            <div>
+
+              <div class="title">
+                ${escapeHtml(item.title)}
+              </div>
+
+              <div class="desc">
+                ${tags}
+              </div>
+
+            </div>
+
+          </div>
+          `;
+
+        })
+        .join("");
+
+    }
+
+  }
+  catch(error){
+
+    console.error(error);
+
+    document.getElementById("updatedAt").textContent =
+      "資料讀取失敗";
+
+    document.getElementById("importantItems").innerHTML =
+      `<tr>
+        <td colspan="3">
+          無法讀取 Dashboard 資料
+        </td>
+      </tr>`;
+
+    document.getElementById("timeline").innerHTML =
+      `<div class="loading">
+        無法讀取 Dashboard 資料
+      </div>`;
+
+  }
+
+}
+
+
+loadDashboard();
+
+</script>
+
 </body>
 </html>
