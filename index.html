@@ -369,8 +369,20 @@ function renderOverview(){
     </tr>`;
   }).join("") : `<tr><td colspan="4" class="empty">目前尚無月報分類資料</td></tr>`;
 
-  const summaryWbs = new Set([1000,2000,3000,3100,3200,3300,4000,5000]);
-  const arr = items.filter(x=>summaryWbs.has(n(x.wbs))).sort((a,b)=>n(a.wbs)-n(b.wbs));
+  const summaryTitles = new Set([
+  "01_議價/議約",
+  "02_簽約/履約",
+  "03_專案執行",
+  "301_A項-內湖工務段",
+  "302_(壓測)B項-苗栗工務段",
+  "303_(壓測)C項-岡山工務段",
+  "04_驗收/修正",
+  "05_請款/結案"
+]);
+
+const arr = items
+  .filter(x=>summaryTitles.has(x.title))
+  .sort((a,b)=>n(a.wbs)-n(b.wbs));
   summaryTimeline.innerHTML = arr.length ? arr.map(i=>`
     <div style="display:grid;grid-template-columns:190px 1fr;gap:16px;padding:10px 0;border-bottom:1px solid #eaeef2">
       <div class="muted">${formatDate(i.plannedStart)} ～ ${formatDate(i.plannedEnd)}</div>
